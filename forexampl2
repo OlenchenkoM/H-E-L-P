@@ -1,0 +1,38 @@
+import re
+print("Оленченко Максим Андрійович \n Лабораторна робота №4 \n Варіант 15"
+      " Завдання №1 Написати функцію, яка аналізує речення речення з заданого слова, та задану кількість слів.")
+beep = True
+while beep == True :
+    import re
+    re_integer = re.compile("^[-+]{0,1}\d+$")
+    def validator(pattern, promt):
+        text = input(promt)
+        while not bool(pattern.match(text)):
+            text = input(promt)
+        return text
+    def int_greater_zero_validator(prompt):
+        number = int(validator(re_integer, prompt))
+        while number <= 0:
+            number = int(validator(re_integer, prompt))
+        return number
+
+    words = input("Введіть строку для аналізу: ")
+    num = int_greater_zero_validator("Введіть номер слова, з якого ви бажаєте почати: ")
+    num2 = int_greater_zero_validator("Введіть кількість слів, що хочете виділити: ")
+    for i in range(num, num2) :
+        def subWords (words, num) :
+            m = list(words.split(" ", -1))
+            return m[num]
+        num = num+1
+    def subWords(words, num):
+        m = list(words.split(" ", -1))
+        return m[num]
+    #result = s.join(n)
+    result = subWords(words, num)
+    print (result)
+    print(i)
+    ans = input("Чи бажаєте ви заново почати роботу з програмою? ")
+    if ans == ("y"):
+        beep = True
+    else:
+        beep = False
